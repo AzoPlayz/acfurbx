@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACFU • Roblox Football League</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="bg-white">
+
+  <!-- Navbar -->
+  <nav class="bg-white border-b sticky top-0 z-50">
+    <div class="max-w-screen-xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-x-3">
+          <img src="logo.png" alt="ACFU Logo" class="w-11 h-11 object-contain">
+          <span class="font-bold text-2xl tracking-tighter">ACFU</span>
+        </div>
+
+        <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+          <a href="#" onclick="showPage('home')" class="hover:text-blue-600">Home</a>
+          <a href="#" onclick="showPage('rankings')" class="hover:text-blue-600">Rankings</a>
+          <a href="#" onclick="showPage('scores')" class="hover:text-blue-600">Scores</a>
+          <a href="#" onclick="showPage('stats')" class="hover:text-blue-600">Stats</a>
+          <a href="#" onclick="showPage('rulebook')" class="hover:text-blue-600">Rulebook</a>
+          <a href="#" onclick="showPage('schoolbooks')" class="hover:text-blue-600">Schoolbooks</a>
+        </div>
+
+        <a href="https://discord.gg/BgndbX7mQT" 
+           class="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-full">
+          Enroll Now
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HOME -->
+  <div id="home" class="page">
+    <div class="bg-[url('https://picsum.photos/id/1015/2000/1200')] bg-cover bg-center h-[620px] flex items-center">
+      <div class="max-w-screen-xl mx-auto px-6">
+        <div class="max-w-xl">
+          <h1 class="text-white text-6xl font-bold leading-none tracking-tighter mb-4">Start Your Journey</h1>
+          <p class="text-white/90 text-lg mb-8">Ready to put your name on the map?<br>Start your Roblox football career today!</p>
+          <a href="https://discord.gg/BgndbX7mQT" 
+             class="inline-block px-8 py-3.5 bg-white text-blue-600 font-semibold rounded-full hover:bg-gray-100">
+            Enroll Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RANKINGS -->
+  <div id="rankings" class="page hidden max-w-screen-xl mx-auto px-6 py-12">
+    <h2 class="text-3xl font-bold mb-8">Current Standings</h2>
+
+    <!-- Rose Conference -->
+    <div class="mb-10">
+      <div class="bg-red-600 text-white px-6 py-3 rounded-t-2xl font-semibold text-xl">Rose Conference</div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 border border-red-200 p-6 rounded-b-2xl">
+        <div>
+          <div class="font-bold mb-3 text-red-800">MAC Division</div>
+          <div class="space-y-1 text-sm">
+            <div>1. Team Name — 7-0</div>
+            <div>2. Team Name — 6-1</div>
+            <div>3. Team Name — 5-2</div>
+            <div>4. Team Name — 4-3</div>
+          </div>
+        </div>
+        <div>
+          <div class="font-bold mb-3 text-green-700">ECC Division</div>
+          <div class="space-y-1 text-sm">
+            <div>1. Team Name — 7-0</div>
+            <div>2. Team Name — 6-1</div>
+            <div>3. Team Name — 5-2</div>
+            <div>4. Team Name — 4-3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Peach Conference -->
+    <div>
+      <div class="bg-pink-500 text-white px-6 py-3 rounded-t-2xl font-semibold text-xl">Peach Conference</div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 border border-pink-200 p-6 rounded-b-2xl">
+        <div>
+          <div class="font-bold mb-3 text-pink-700">NAC Division</div>
+          <div class="space-y-1 text-sm">
+            <div>1. Team Name — 7-0</div>
+            <div>2. Team Name — 6-1</div>
+            <div>3. Team Name — 5-2</div>
+            <div>4. Team Name — 4-3</div>
+          </div>
+        </div>
+        <div>
+          <div class="font-bold mb-3 text-blue-800">SAC Division</div>
+          <div class="space-y-1 text-sm">
+            <div>1. Team Name — 7-0</div>
+            <div>2. Team Name — 6-1</div>
+            <div>3. Team Name — 5-2</div>
+            <div>4. Team Name — 4-3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCORES -->
+  <div id="scores" class="page hidden max-w-screen-xl mx-auto px-6 py-12">
+    <h2 class="text-3xl font-bold mb-6">Scores</h2>
+    <p class="text-gray-500">Weekly scores will be posted here.</p>
+  </div>
+
+  <!-- STATS -->
+  <div id="stats" class="page hidden max-w-screen-xl mx-auto px-6 py-12">
+    <h2 class="text-3xl font-bold mb-6">Stats</h2>
+    
+    <div class="flex flex-wrap gap-2 mb-6">
+      <button onclick="showStatsTab('qb-tab')" class="px-5 py-2 bg-blue-600 text-white rounded-full text-sm">QB</button>
+      <button onclick="showStatsTab('rb-tab')" class="px-5 py-2 bg-gray-200 rounded-full text-sm">RB</button>
+      <button onclick="showStatsTab('wr-tab')" class="px-5 py-2 bg-gray-200 rounded-full text-sm">WR</button>
+      <button onclick="showStatsTab('te-tab')" class="px-5 py-2 bg-gray-200 rounded-full text-sm">TE</button>
+    </div>
+
+    <div id="qb-tab" class="stats-content bg-white border rounded-2xl overflow-hidden">
+      <div class="px-6 py-3 bg-gray-50 font-semibold">Quarterback Stats</div>
+      <table class="w-full text-sm">
+        <thead class="bg-gray-100">
+          <tr>
+            <th class="px-6 py-3 text-left">Username</th>
+            <th class="px-4 py-3 text-center">PTs</th>
+            <th class="px-4 py-3 text-center">YDs</th>
+            <th class="px-4 py-3 text-center">C%</th>
+            <th class="px-4 py-3 text-center">TDs</th>
+            <th class="px-4 py-3 text-center">INT</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y">
+          <tr>
+            <td class="px-6 py-3">LuhhTxny</td>
+            <td class="px-4 py-3 text-center font-semibold">242.8</td>
+            <td class="px-4 py-3 text-center">3446</td>
+            <td class="px-4 py-3 text-center">71.51%</td>
+            <td class="px-4 py-3 text-center">42</td>
+            <td class="px-4 py-3 text-center">7</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- RULEBOOK -->
+  <div id="rulebook" class="page hidden max-w-screen-xl mx-auto px-6 py-12">
+    <h2 class="text-3xl font-bold mb-6">Rulebook</h2>
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-2xl">
+      <h3 class="font-semibold mb-3">Game Setup</h3>
+      <ul class="text-sm space-y-1.5">
+        <li>• Turn off public listing</li>
+        <li>• Turn on group only</li>
+        <li>• Set fumble chances to 1</li>
+        <li>• Set quarter length to 4</li>
+        <li>• Turn off hitstick</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SCHOOLBOOKS -->
+  <div id="schoolbooks" class="page hidden max-w-screen-xl mx-auto px-6 py-12">
+    <h2 class="text-3xl font-bold mb-6">Schoolbooks</h2>
+    <p class="text-gray-500">Schoolbooks and resources will go here.</p>
+  </div>
+
+  <!-- SINGLE FOOTER -->
+  <footer class="bg-gray-900 text-gray-400 py-8 text-sm mt-12">
+    <div class="max-w-screen-xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-y-4">
+      <div class="flex items-center gap-x-5 text-xl">
+        <a href="https://discord.gg/BgndbX7mQT" class="hover:text-white"><i class="fab fa-discord"></i></a>
+        <a href="#" class="hover:text-white"><i class="fab fa-youtube"></i></a>
+      </div>
+      <div class="flex gap-x-8">
+        <a href="#" onclick="showPage('rankings')" class="hover:text-white">Rankings</a>
+        <a href="#" onclick="showPage('scores')" class="hover:text-white">Scores</a>
+        <a href="#" onclick="showPage('stats')" class="hover:text-white">Stats</a>
+        <a href="#" onclick="showPage('rulebook')" class="hover:text-white">Rulebook</a>
+      </div>
+      <div>© 2026 ACFU</div>
+    </div>
+  </footer>
+
+  <script>
+    function showPage(pageId) {
+      // Hide all pages
+      document.querySelectorAll('.page').forEach(section => {
+        section.classList.add('hidden');
+      });
+      
+      // Show the selected page
+      const target = document.getElementById(pageId);
+      if (target) {
+        target.classList.remove('hidden');
+        window.scrollTo(0, 0);
+      }
+    }
+
+    function showStatsTab(tabId) {
+      document.querySelectorAll('.stats-content').forEach(el => el.classList.add('hidden'));
+      const tab = document.getElementById(tabId);
+      if (tab) tab.classList.remove('hidden');
+    }
+
+    // Show home page when the site loads
+    window.onload = function() {
+      document.querySelectorAll('.page').forEach(section => section.classList.add('hidden'));
+      document.getElementById('home').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
