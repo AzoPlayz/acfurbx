@@ -188,32 +188,34 @@
     </div>
   </footer>
 
-  <script>
-    function showPage(pageId) {
-      // Hide all pages
-      document.querySelectorAll('.page').forEach(section => {
+<script>
+  function showPage(pageId) {
+    // Hide all pages EXCEPT the one we want to show
+    document.querySelectorAll('.page').forEach(section => {
+      if (section.id !== pageId) {
         section.classList.add('hidden');
-      });
-      
-      // Show the selected page
-      const target = document.getElementById(pageId);
-      if (target) {
-        target.classList.remove('hidden');
-        window.scrollTo(0, 0);
       }
-    }
+    });
 
-    function showStatsTab(tabId) {
-      document.querySelectorAll('.stats-content').forEach(el => el.classList.add('hidden'));
-      const tab = document.getElementById(tabId);
-      if (tab) tab.classList.remove('hidden');
+    // Show the target page
+    const target = document.getElementById(pageId);
+    if (target) {
+      target.classList.remove('hidden');
+      window.scrollTo(0, 0);
     }
+  }
 
-    // Show home page when the site loads
-    window.onload = function() {
-      document.querySelectorAll('.page').forEach(section => section.classList.add('hidden'));
-      document.getElementById('home').classList.remove('hidden');
-    }
-  </script>
+  function showStatsTab(tabId) {
+    document.querySelectorAll('.stats-content').forEach(el => el.classList.add('hidden'));
+    const tab = document.getElementById(tabId);
+    if (tab) tab.classList.remove('hidden');
+  }
+
+  // Show home page on load
+  window.onload = function() {
+    document.querySelectorAll('.page').forEach(section => section.classList.add('hidden'));
+    document.getElementById('home').classList.remove('hidden');
+  }
+</script>
 </body>
 </html>
