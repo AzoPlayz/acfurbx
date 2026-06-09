@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     body { font-family: 'Inter', system_ui, sans-serif; }
-    .hero-bg { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://picsum.photos/id/1015/2000/1200'); }
+    .page { min-height: 100vh; }
   </style>
 </head>
 <body class="bg-white">
@@ -35,9 +35,9 @@
     </div>
   </nav>
 
-  <!-- HOME PAGE -->
+  <!-- HOME PAGE - Compact -->
   <div id="home" class="page">
-    <div class="hero-bg bg-cover bg-center h-screen flex items-center text-white">
+    <div class="bg-[url('https://picsum.photos/id/1015/2000/1200')] bg-cover bg-center h-[580px] flex items-center text-white relative">
       <div class="max-w-screen-xl mx-auto px-6">
         <div class="max-w-2xl">
           <h1 class="text-6xl font-bold leading-none tracking-tighter mb-6">START YOUR JOURNEY</h1>
@@ -49,11 +49,11 @@
       </div>
     </div>
 
-    <!-- Blue Register Section -->
-    <div class="bg-blue-600 py-12 text-white">
-      <div class="max-w-screen-xl mx-auto px-6 text-center">
-        <h2 class="text-4xl font-bold mb-4">GET REGISTERED NOW!</h2>
-        <a href="https://discord.gg/BgndbX7mQT" class="inline-block px-10 py-4 bg-white text-blue-600 font-semibold rounded-full text-lg hover:bg-gray-100">
+    <!-- Blue Register Bar -->
+    <div class="bg-blue-600 py-8 text-white">
+      <div class="max-w-screen-xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+        <h2 class="text-3xl font-bold">GET REGISTERED NOW!</h2>
+        <a href="https://discord.gg/BgndbX7mQT" class="px-10 py-4 bg-white text-blue-600 font-semibold rounded-full text-lg hover:bg-gray-100">
           Register
         </a>
       </div>
@@ -62,78 +62,58 @@
 
   <!-- SCORES PAGE -->
   <div id="scores" class="page hidden max-w-screen-xl mx-auto px-6 py-12">
-    <h2 class="text-4xl font-bold mb-10 text-center">Scores</h2>
-    <div class="flex gap-2 mb-8 overflow-x-auto pb-2">
-      <button onclick="showWeek(1)" class="week-btn active px-6 py-2 bg-blue-600 text-white rounded-full">Week 1</button>
-      <button onclick="showWeek(2)" class="week-btn px-6 py-2 bg-gray-200 rounded-full">Week 2</button>
-      <!-- Add more weeks here -->
+    <h2 class="text-4xl font-bold mb-8">Scores</h2>
+    <div class="flex gap-3 mb-8 overflow-x-auto pb-2">
+      <button onclick="showWeek(1)" class="week-btn active px-8 py-3 bg-blue-600 text-white rounded-full whitespace-nowrap">Week 1</button>
+      <button onclick="showWeek(2)" class="week-btn px-8 py-3 bg-gray-200 hover:bg-gray-300 rounded-full whitespace-nowrap">Week 2</button>
+      <!-- Add more weeks as needed -->
     </div>
 
-    <div id="week-1" class="week-content">
-      <table class="w-full text-left border-collapse">
-        <thead class="bg-gray-100">
-          <tr>
-            <th class="p-4">Team</th>
-            <th class="p-4 text-center">Score</th>
-            <th class="p-4 text-center">Score</th>
-            <th class="p-4">Team</th>
-          </tr>
-        </thead>
-        <tbody class="divide-y">
-          <tr><td class="p-4">Glendale Ghosts</td><td class="p-4 text-center font-bold">42</td><td class="p-4 text-center font-bold">0</td><td class="p-4">Tennessee</td></tr>
-          <!-- Add more matches easily here -->
-        </tbody>
-      </table>
+    <div id="week-content" class="space-y-12">
+      <!-- Week content will be loaded by JS -->
     </div>
   </div>
 
-  <!-- STATS PAGE (similar to your screenshot) -->
+  <!-- STATS PAGE -->
   <div id="stats" class="page hidden max-w-screen-xl mx-auto px-6 py-12">
-    <h2 class="text-4xl font-bold mb-8 text-center">Quarterback Stats</h2>
+    <h2 class="text-4xl font-bold mb-10 text-center">League Stats</h2>
     
-    <div class="flex gap-2 mb-8 overflow-x-auto">
-      <button onclick="showPosition('qb')" class="pos-btn active px-6 py-2 bg-blue-600 text-white rounded-full">QB</button>
-      <button onclick="showPosition('rb')" class="pos-btn px-6 py-2 bg-gray-200 rounded-full">RB</button>
-      <button onclick="showPosition('wr')" class="pos-btn px-6 py-2 bg-gray-200 rounded-full">WR</button>
-      <!-- Add more positions -->
+    <div class="flex flex-wrap gap-3 mb-10 justify-center">
+      <button onclick="showPosition('QB')" class="pos-btn active px-6 py-3 bg-blue-600 text-white rounded-full">QB</button>
+      <button onclick="showPosition('RB')" class="pos-btn px-6 py-3 bg-gray-200 hover:bg-gray-300 rounded-full">RB</button>
+      <button onclick="showPosition('WR')" class="pos-btn px-6 py-3 bg-gray-200 hover:bg-gray-300 rounded-full">WR</button>
+      <button onclick="showPosition('TE')" class="pos-btn px-6 py-3 bg-gray-200 hover:bg-gray-300 rounded-full">TE</button>
+      <button onclick="showPosition('C')" class="pos-btn px-6 py-3 bg-gray-200 hover:bg-gray-300 rounded-full">C</button>
+      <button onclick="showPosition('DE')" class="pos-btn px-6 py-3 bg-gray-200 hover:bg-gray-300 rounded-full">DE</button>
+      <button onclick="showPosition('LB')" class="pos-btn px-6 py-3 bg-gray-200 hover:bg-gray-300 rounded-full">LB</button>
+      <button onclick="showPosition('DB')" class="pos-btn px-6 py-3 bg-gray-200 hover:bg-gray-300 rounded-full">DB</button>
     </div>
 
     <div class="overflow-x-auto">
-      <table class="w-full text-sm">
+      <table class="w-full text-sm border-collapse" id="stats-table">
         <thead class="bg-gray-100">
-          <tr>
-            <th class="p-4 text-left">TM</th>
-            <th class="p-4 text-left">Username</th>
-            <th class="p-4 text-center">PTs</th>
-            <th class="p-4 text-center">YDs</th>
-            <th class="p-4 text-center">C%</th>
-            <th class="p-4 text-center">TDs</th>
-            <th class="p-4 text-center">INT</th>
-          </tr>
+          <tr id="stats-header"></tr>
         </thead>
-        <tbody class="divide-y" id="stats-body">
-          <!-- Add your stats rows here -->
-        </tbody>
+        <tbody id="stats-body" class="divide-y"></tbody>
       </table>
     </div>
   </div>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-400 py-12 mt-auto">
-    <div class="max-w-screen-xl mx-auto px-6">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-        <div class="flex items-center gap-6 text-2xl">
-          <a href="https://discord.gg/BgndbX7mQT" class="hover:text-white"><i class="fab fa-discord"></i></a>
-          <a href="#" class="hover:text-white"><i class="fab fa-youtube"></i></a>
-        </div>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-x-12 text-sm">
-          <div><a href="#" onclick="showPage('home')" class="hover:text-white">Home</a></div>
-          <div><a href="#" onclick="showPage('rankings')" class="hover:text-white">Rankings</a></div>
-          <div><a href="#" onclick="showPage('scores')" class="hover:text-white">Scores</a></div>
-          <div><a href="#" onclick="showPage('stats')" class="hover:text-white">Stats</a></div>
-        </div>
-        <div>© 2026 ACFU</div>
+  <footer class="bg-gray-900 text-gray-400 py-10 text-sm mt-auto">
+    <div class="max-w-screen-xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-y-6">
+      <div class="flex items-center gap-x-6 text-2xl">
+        <a href="https://discord.gg/BgndbX7mQT" class="hover:text-white"><i class="fab fa-discord"></i></a>
+        <a href="#" class="hover:text-white"><i class="fab fa-youtube"></i></a>
       </div>
+      <div class="flex flex-wrap gap-x-8 gap-y-2 justify-center">
+        <a href="#" onclick="showPage('home')" class="hover:text-white">Home</a>
+        <a href="#" onclick="showPage('rankings')" class="hover:text-white">Rankings</a>
+        <a href="#" onclick="showPage('scores')" class="hover:text-white">Scores</a>
+        <a href="#" onclick="showPage('stats')" class="hover:text-white">Stats</a>
+        <a href="#" onclick="showPage('rulebook')" class="hover:text-white">Rulebook</a>
+      </div>
+      <div>© 2026 ACFU</div>
     </div>
   </footer>
 
@@ -142,6 +122,20 @@
       document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
       document.getElementById(pageId).classList.remove('hidden');
       window.scrollTo(0, 0);
+    }
+
+    // Simple week navigation example
+    function showWeek(week) {
+      document.querySelectorAll('.week-btn').forEach(btn => btn.classList.remove('active', 'bg-blue-600', 'text-white'));
+      event.target.classList.add('active', 'bg-blue-600', 'text-white');
+      // You can expand this with real data later
+      alert(`Showing Week ${week} scores (add your data here)`);
+    }
+
+    function showPosition(pos) {
+      document.querySelectorAll('.pos-btn').forEach(btn => btn.classList.remove('active', 'bg-blue-600', 'text-white'));
+      event.target.classList.add('active', 'bg-blue-600', 'text-white');
+      alert(`Showing ${pos} stats (add your table data here)`);
     }
 
     window.onload = () => showPage('home');
