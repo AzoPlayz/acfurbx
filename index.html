@@ -35,9 +35,10 @@
     </div>
   </nav>
 
-  <!-- HOME PAGE - Compact -->
+  <!-- HOME PAGE - Compact (No Scroll) -->
   <div id="home" class="page">
-    <div class="bg-[url('https://picsum.photos/id/1015/2000/1200')] bg-cover bg-center h-[580px] flex items-center text-white relative">
+    <!-- Hero -->
+    <div class="bg-[url('https://picsum.photos/id/1015/2000/1200')] bg-cover bg-center h-[520px] flex items-center text-white">
       <div class="max-w-screen-xl mx-auto px-6">
         <div class="max-w-2xl">
           <h1 class="text-6xl font-bold leading-none tracking-tighter mb-6">START YOUR JOURNEY</h1>
@@ -49,48 +50,34 @@
       </div>
     </div>
 
-    <!-- Blue Register Bar -->
-    <div class="bg-blue-600 py-8 text-white">
-      <div class="max-w-screen-xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-        <h2 class="text-3xl font-bold">GET REGISTERED NOW!</h2>
-        <a href="https://discord.gg/BgndbX7mQT" class="px-10 py-4 bg-white text-blue-600 font-semibold rounded-full text-lg hover:bg-gray-100">
+    <!-- Blue Register Bar - Right below hero -->
+    <div class="bg-blue-600 py-10 text-white">
+      <div class="max-w-screen-xl mx-auto px-6 text-center">
+        <h2 class="text-4xl font-bold mb-4">GET REGISTERED NOW!</h2>
+        <a href="https://discord.gg/BgndbX7mQT" class="inline-block px-10 py-4 bg-white text-blue-600 font-semibold rounded-full text-lg hover:bg-gray-100">
           Register
         </a>
       </div>
     </div>
   </div>
 
-  <!-- SCORES PAGE -->
-  <div id="scores" class="page hidden max-w-screen-xl mx-auto px-6 py-12">
-    <h2 class="text-4xl font-bold mb-8">Scores</h2>
-    <div class="flex gap-3 mb-8 overflow-x-auto pb-2">
-      <button onclick="showWeek(1)" class="week-btn active px-8 py-3 bg-blue-600 text-white rounded-full whitespace-nowrap">Week 1</button>
-      <button onclick="showWeek(2)" class="week-btn px-8 py-3 bg-gray-200 hover:bg-gray-300 rounded-full whitespace-nowrap">Week 2</button>
-      <!-- Add more weeks as needed -->
-    </div>
-
-    <div id="week-content" class="space-y-12">
-      <!-- Week content will be loaded by JS -->
-    </div>
-  </div>
-
-  <!-- STATS PAGE -->
+  <!-- STATS PAGE - Active button turns blue -->
   <div id="stats" class="page hidden max-w-screen-xl mx-auto px-6 py-12">
     <h2 class="text-4xl font-bold mb-10 text-center">League Stats</h2>
     
     <div class="flex flex-wrap gap-3 mb-10 justify-center">
-      <button onclick="showPosition('QB')" class="pos-btn active px-6 py-3 bg-blue-600 text-white rounded-full">QB</button>
-      <button onclick="showPosition('RB')" class="pos-btn px-6 py-3 bg-gray-200 hover:bg-gray-300 rounded-full">RB</button>
-      <button onclick="showPosition('WR')" class="pos-btn px-6 py-3 bg-gray-200 hover:bg-gray-300 rounded-full">WR</button>
-      <button onclick="showPosition('TE')" class="pos-btn px-6 py-3 bg-gray-200 hover:bg-gray-300 rounded-full">TE</button>
-      <button onclick="showPosition('C')" class="pos-btn px-6 py-3 bg-gray-200 hover:bg-gray-300 rounded-full">C</button>
-      <button onclick="showPosition('DE')" class="pos-btn px-6 py-3 bg-gray-200 hover:bg-gray-300 rounded-full">DE</button>
-      <button onclick="showPosition('LB')" class="pos-btn px-6 py-3 bg-gray-200 hover:bg-gray-300 rounded-full">LB</button>
-      <button onclick="showPosition('DB')" class="pos-btn px-6 py-3 bg-gray-200 hover:bg-gray-300 rounded-full">DB</button>
+      <button onclick="showPosition(this, 'QB')" class="pos-btn active px-7 py-3 bg-blue-600 text-white rounded-full font-medium">QB</button>
+      <button onclick="showPosition(this, 'RB')" class="pos-btn px-7 py-3 bg-gray-200 hover:bg-gray-300 rounded-full font-medium">RB</button>
+      <button onclick="showPosition(this, 'WR')" class="pos-btn px-7 py-3 bg-gray-200 hover:bg-gray-300 rounded-full font-medium">WR</button>
+      <button onclick="showPosition(this, 'TE')" class="pos-btn px-7 py-3 bg-gray-200 hover:bg-gray-300 rounded-full font-medium">TE</button>
+      <button onclick="showPosition(this, 'C')" class="pos-btn px-7 py-3 bg-gray-200 hover:bg-gray-300 rounded-full font-medium">C</button>
+      <button onclick="showPosition(this, 'DE')" class="pos-btn px-7 py-3 bg-gray-200 hover:bg-gray-300 rounded-full font-medium">DE</button>
+      <button onclick="showPosition(this, 'LB')" class="pos-btn px-7 py-3 bg-gray-200 hover:bg-gray-300 rounded-full font-medium">LB</button>
+      <button onclick="showPosition(this, 'DB')" class="pos-btn px-7 py-3 bg-gray-200 hover:bg-gray-300 rounded-full font-medium">DB</button>
     </div>
 
     <div class="overflow-x-auto">
-      <table class="w-full text-sm border-collapse" id="stats-table">
+      <table class="w-full text-sm" id="stats-table">
         <thead class="bg-gray-100">
           <tr id="stats-header"></tr>
         </thead>
@@ -124,18 +111,18 @@
       window.scrollTo(0, 0);
     }
 
-    // Simple week navigation example
-    function showWeek(week) {
-      document.querySelectorAll('.week-btn').forEach(btn => btn.classList.remove('active', 'bg-blue-600', 'text-white'));
-      event.target.classList.add('active', 'bg-blue-600', 'text-white');
-      // You can expand this with real data later
-      alert(`Showing Week ${week} scores (add your data here)`);
-    }
+    function showPosition(btn, pos) {
+      // Remove active from all buttons
+      document.querySelectorAll('.pos-btn').forEach(b => {
+        b.classList.remove('active', 'bg-blue-600', 'text-white');
+        b.classList.add('bg-gray-200');
+      });
+      // Activate clicked button
+      btn.classList.add('active', 'bg-blue-600', 'text-white');
+      btn.classList.remove('bg-gray-200');
 
-    function showPosition(pos) {
-      document.querySelectorAll('.pos-btn').forEach(btn => btn.classList.remove('active', 'bg-blue-600', 'text-white'));
-      event.target.classList.add('active', 'bg-blue-600', 'text-white');
-      alert(`Showing ${pos} stats (add your table data here)`);
+      // TODO: Add your stats table switching logic here
+      console.log(`Showing ${pos} stats`);
     }
 
     window.onload = () => showPage('home');
