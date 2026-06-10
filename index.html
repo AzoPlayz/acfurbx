@@ -9,6 +9,8 @@
   <style>
     body { font-family: 'Inter', system_ui, sans-serif; }
     .page { min-height: 100vh; }
+    .accent-green { color: #49FF5B; }
+    .bg-accent { background-color: #49FF5B; }
   </style>
 </head>
 <body class="bg-white">
@@ -22,20 +24,20 @@
           <span class="font-bold text-2xl tracking-tighter">ACFU</span>
         </div>
         <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
-          <a href="#" onclick="showPage('home')" class="hover:text-green-600">Home</a>
-          <a href="#" onclick="showPage('rankings')" class="hover:text-green-600">Rankings</a>
-          <a href="#" onclick="showPage('scores')" class="hover:text-green-600">Scores</a>
-          <a href="#" onclick="showPage('stats')" class="hover:text-green-600">Stats</a>
-          <a href="#" onclick="showPage('rulebook')" class="hover:text-green-600">Rulebook</a>
+          <a href="#" onclick="showPage('home')" class="hover:text-[#49FF5B]">Home</a>
+          <a href="#" onclick="showPage('rankings')" class="hover:text-[#49FF5B]">Rankings</a>
+          <a href="#" onclick="showPage('scores')" class="hover:text-[#49FF5B]">Scores</a>
+          <a href="#" onclick="showPage('stats')" class="hover:text-[#49FF5B]">Stats</a>
+          <a href="#" onclick="showPage('rulebook')" class="hover:text-[#49FF5B]">Rulebook</a>
         </div>
-        <a href="https://discord.gg/BgndbX7mQT" class="px-6 py-2 bg-green-600 hover:bg-green-700 text-white text-sm font-semibold rounded-full">
+        <a href="https://discord.gg/BgndbX7mQT" class="px-6 py-2 bg-[#49FF5B] hover:bg-green-400 text-black font-semibold rounded-full">
           Enroll Now
         </a>
       </div>
     </div>
   </nav>
 
-  <!-- HOME PAGE -->
+  <!-- HOME PAGE - Compact -->
   <div id="home" class="page">
     <!-- Hero -->
     <div class="bg-[url('https://picsum.photos/id/1015/2000/1200')] bg-cover bg-center h-[520px] flex items-center text-white">
@@ -43,33 +45,47 @@
         <div class="max-w-2xl">
           <h1 class="text-6xl font-bold leading-none tracking-tighter mb-6">START YOUR JOURNEY</h1>
           <p class="text-xl mb-8">Ready to put your name on the map?<br>Start your Roblox football career today!</p>
-          <a href="https://discord.gg/BgndbX7mQT" class="inline-block px-8 py-4 bg-white text-green-600 font-semibold rounded-full text-lg hover:bg-gray-100">
+          <a href="https://discord.gg/BgndbX7mQT" class="inline-block px-8 py-4 bg-white text-black font-semibold rounded-full text-lg hover:bg-gray-100">
             Enroll Now
           </a>
         </div>
       </div>
     </div>
 
-    <!-- Green Bar - Right below hero -->
-    <div class="bg-green-600 py-10 text-white">
+    <!-- Green Bar - Right below hero (pushed up) -->
+    <div class="bg-[#49FF5B] py-10 text-black">
       <div class="max-w-screen-xl mx-auto px-6 text-center">
         <h2 class="text-4xl font-bold mb-4">GET REGISTERED NOW!</h2>
-        <a href="https://discord.gg/BgndbX7mQT" class="inline-block px-10 py-4 bg-white text-green-600 font-semibold rounded-full text-lg hover:bg-gray-100">
+        <a href="https://discord.gg/BgndbX7mQT" class="inline-block px-10 py-4 bg-black text-white font-semibold rounded-full text-lg hover:bg-gray-800">
           Register
         </a>
       </div>
     </div>
   </div>
 
-  <!-- Other Pages (Rankings, Scores, Stats, Rulebook) -->
-  <div id="scores" class="page hidden max-w-screen-xl mx-auto px-6 py-12">
-    <h2 class="text-4xl font-bold mb-8">Scores</h2>
-    <!-- Your scores content here -->
-  </div>
-
+  <!-- STATS PAGE - Fixed with proper active colors -->
   <div id="stats" class="page hidden max-w-screen-xl mx-auto px-6 py-12">
     <h2 class="text-4xl font-bold mb-10 text-center">League Stats</h2>
-    <!-- Your stats content here -->
+    
+    <div class="flex flex-wrap gap-3 mb-10 justify-center">
+      <button onclick="showPosition(this, 'QB')" class="pos-btn active px-7 py-3 bg-[#49FF5B] text-black rounded-full font-medium">QB</button>
+      <button onclick="showPosition(this, 'RB')" class="pos-btn px-7 py-3 bg-gray-200 hover:bg-gray-300 rounded-full font-medium">RB</button>
+      <button onclick="showPosition(this, 'WR')" class="pos-btn px-7 py-3 bg-gray-200 hover:bg-gray-300 rounded-full font-medium">WR</button>
+      <button onclick="showPosition(this, 'TE')" class="pos-btn px-7 py-3 bg-gray-200 hover:bg-gray-300 rounded-full font-medium">TE</button>
+      <button onclick="showPosition(this, 'C')" class="pos-btn px-7 py-3 bg-gray-200 hover:bg-gray-300 rounded-full font-medium">C</button>
+      <button onclick="showPosition(this, 'DE')" class="pos-btn px-7 py-3 bg-gray-200 hover:bg-gray-300 rounded-full font-medium">DE</button>
+      <button onclick="showPosition(this, 'LB')" class="pos-btn px-7 py-3 bg-gray-200 hover:bg-gray-300 rounded-full font-medium">LB</button>
+      <button onclick="showPosition(this, 'DB')" class="pos-btn px-7 py-3 bg-gray-200 hover:bg-gray-300 rounded-full font-medium">DB</button>
+    </div>
+
+    <div class="overflow-x-auto bg-white rounded-2xl shadow">
+      <table class="w-full text-sm" id="stats-table">
+        <thead class="bg-gray-100">
+          <tr id="stats-header"></tr>
+        </thead>
+        <tbody id="stats-body" class="divide-y"></tbody>
+      </table>
+    </div>
   </div>
 
   <!-- Footer -->
@@ -95,6 +111,14 @@
       document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
       document.getElementById(pageId).classList.remove('hidden');
       window.scrollTo(0, 0);
+    }
+
+    function showPosition(btn, pos) {
+      document.querySelectorAll('.pos-btn').forEach(b => {
+        b.classList.remove('active', 'bg-[#49FF5B]', 'text-black');
+        b.classList.add('bg-gray-200');
+      });
+      btn.classList.add('active', 'bg-[#49FF5B]', 'text-black');
     }
 
     window.onload = () => showPage('home');
